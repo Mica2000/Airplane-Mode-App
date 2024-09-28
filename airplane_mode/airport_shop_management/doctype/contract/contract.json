@@ -1,0 +1,103 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{shop_name}",
+ "creation": "2024-09-19 11:12:04.003322",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "shop_contract_section",
+  "tenant_name",
+  "shop_name",
+  "rent_amount",
+  "contract_start_date",
+  "contract_end_date",
+  "tenant_signature",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "shop_contract_section",
+   "fieldtype": "Section Break",
+   "label": "Shop Contract"
+  },
+  {
+   "fieldname": "tenant_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tenant Name",
+   "options": "Tenants",
+   "reqd": 1
+  },
+  {
+   "fieldname": "shop_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Shop Name",
+   "options": "Shops",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rent_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Rent Amount(kshs.)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contract_start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Contract Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contract_end_date",
+   "fieldtype": "Date",
+   "label": "Contract End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tenant_signature",
+   "fieldtype": "Signature",
+   "label": "Tenant Signature",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Contract",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-09-19 11:26:46.719137",
+ "modified_by": "Administrator",
+ "module": "Airport Shop Management",
+ "name": "Contract",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

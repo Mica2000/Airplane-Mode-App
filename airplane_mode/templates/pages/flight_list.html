@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Flights</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .flight-list {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .flight-item {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        .flight-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        .flight-details {
+            flex-grow: 1;
+        }
+        .flight-details p {
+            margin: 8px 0;
+            color: #34495e;
+        }
+        .flight-details strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        .view-link {
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        .view-link:hover {
+            background: linear-gradient(45deg, #2980b9, #3498db);
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+        }
+        .flight-code {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        .flight-route {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .airport-code {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .route-arrow {
+            margin: 0 10px;
+            color: #7f8c8d;
+        }
+        @media (max-width: 600px) {
+            .flight-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .view-link {
+                margin-top: 15px;
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flight-list">
+        <h1>Available Flights</h1>
+        {% for flight in flights %}
+            <div class="flight-item">
+                <div class="flight-details">
+                    <div class="flight-code">Flight: {{ flight.name }}</div>
+                    <div class="flight-route">
+                        <span class="airport-code">{{ flight.source_airport_code }}</span>
+                        <span class="route-arrow">→</span>
+                        <span class="airport-code">{{ flight.destination_airport_code }}</span>
+                    </div>
+                    <p><strong>Date:</strong> {{ flight.date_of_departure }}</p>
+                    <p><strong>Time:</strong> {{ flight.time_of_departure }}</p>
+                    <p><strong>Duration:</strong> {{ flight.duration }}</p>
+                </div>
+                <a href="/airplane-flight/{{ flight.name }}" class="view-link">View Flight</a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+

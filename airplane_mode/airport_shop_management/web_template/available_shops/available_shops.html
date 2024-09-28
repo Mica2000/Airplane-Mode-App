@@ -1,0 +1,23 @@
+<div class="container">
+    <h2>Available Shops at the Airport</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Shop Number</th>
+                <th>Shop Name</th>
+                <th>Area (sq. ft)</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for shop in shops %}
+            <tr>
+                <td>{{ shop.shop_number }}</td>
+                <td>{{ shop.shop_name }}</td>
+                <td>{{ shop.area }}</td>
+                <td>{{ shop.status }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

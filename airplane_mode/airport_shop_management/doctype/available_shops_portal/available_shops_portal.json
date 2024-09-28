@@ -1,0 +1,106 @@
+{
+ "actions": [],
+ "allow_guest_to_view": 1,
+ "allow_rename": 1,
+ "creation": "2024-09-19 15:17:15.003240",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "shop_portal_section",
+  "tenant_name",
+  "shop_name",
+  "shop_number",
+  "status",
+  "area",
+  "route"
+ ],
+ "fields": [
+  {
+   "fieldname": "shop_portal_section",
+   "fieldtype": "Section Break",
+   "label": "Shop Portal"
+  },
+  {
+   "fieldname": "tenant_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tenant Name",
+   "options": "Tenants",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "tenant_name.shop_name",
+   "fieldname": "shop_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Shop Name",
+   "options": "Shops",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "shop_name.shop_number",
+   "fieldname": "shop_number",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Shop Number",
+   "options": "Shops",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "shop_name.status",
+   "fieldname": "status",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Shops",
+   "reqd": 1
+  },
+  {
+   "fieldname": "area",
+   "fieldtype": "Select",
+   "label": "Area",
+   "options": "100m * 100m\n120m * 100m\n150m * 150m\n180m * 150m\n200m * 200m",
+   "reqd": 1
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route",
+   "options": "route"
+  }
+ ],
+ "has_web_view": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-25 11:19:31.537633",
+ "modified_by": "Administrator",
+ "module": "Airport Shop Management",
+ "name": "Available Shops Portal",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Tenants",
+   "share": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,50 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-11 10:02:53.870353",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ticket_name",
+  "passenger",
+  "seat",
+  "flight_price"
+ ],
+ "fields": [
+  {
+   "fieldname": "ticket_name",
+   "fieldtype": "Link",
+   "label": "Ticket Name",
+   "options": "Airplane Ticket"
+  },
+  {
+   "fieldname": "passenger",
+   "fieldtype": "Link",
+   "label": "Passenger",
+   "options": "Flight passenger"
+  },
+  {
+   "fieldname": "seat",
+   "fieldtype": "Data",
+   "label": "Seat"
+  },
+  {
+   "fieldname": "flight_price",
+   "fieldtype": "Currency",
+   "label": "Flight Price"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-11 10:32:51.288925",
+ "modified_by": "Administrator",
+ "module": "Airplane management",
+ "name": "Airplane Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

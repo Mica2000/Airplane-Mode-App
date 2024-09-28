@@ -1,0 +1,13 @@
+<!-- flight_detail.html -->
+{% if flight %}
+  <h1>Flight Details</h1>
+  <p><strong>From:</strong> {{ flight.source_airport_code or 'N/A' }}</p>
+  <p><strong>To:</strong> {{ flight.destination_airport_code or 'N/A' }}</p>
+  <p><strong>Date:</strong> {{ flight.departure_date or 'N/A' }}</p>
+  <p><strong>Time:</strong> {{ flight.departure_time or 'N/A' }}</p>
+  <p><strong>Duration:</strong> {{ flight.flight_duration or 'N/A' }}</p>
+  <!-- Link to the booking form, passing the flight name as a parameter -->
+  <a href="/book-flight?flight={{ flight.name }}">Book Flight</a>
+{% else %}
+  <p>Flight details not available.</p>
+{% endif %}

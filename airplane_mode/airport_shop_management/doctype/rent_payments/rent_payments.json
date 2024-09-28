@@ -1,0 +1,130 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{tenant_name}",
+ "creation": "2024-09-19 11:35:40.467030",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "rent_payment_section",
+  "contract",
+  "tenant_name",
+  "shop_name",
+  "shop_rent_amount",
+  "payment_date",
+  "paid_amount_kshs",
+  "rent_balance_kshs",
+  "checkout",
+  "receipt",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "rent_payment_section",
+   "fieldtype": "Section Break",
+   "label": "Rent Payment"
+  },
+  {
+   "fetch_from": "contract.tenant_name",
+   "fieldname": "tenant_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tenant Name",
+   "options": "Tenants",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "contract.shop_name",
+   "fieldname": "shop_name",
+   "fieldtype": "Link",
+   "label": "Shop Name",
+   "options": "Shops",
+   "reqd": 1
+  },
+  {
+   "fieldname": "receipt",
+   "fieldtype": "Data",
+   "label": "Receipt"
+  },
+  {
+   "fieldname": "contract",
+   "fieldtype": "Link",
+   "label": "Contract",
+   "options": "Contract",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "contract.rent_amount",
+   "fieldname": "shop_rent_amount",
+   "fieldtype": "Currency",
+   "label": "Shop Rent Amount (kshs)"
+  },
+  {
+   "fieldname": "paid_amount_kshs",
+   "fieldtype": "Currency",
+   "label": "Paid Amount (Kshs)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rent_balance_kshs",
+   "fieldtype": "Currency",
+   "label": "Rent Balance (Kshs)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "payment_date",
+   "fieldtype": "Datetime",
+   "label": "Payment Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Rent Payments",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "checkout",
+   "fieldtype": "Select",
+   "label": "Checkout",
+   "options": "Paid\nPartial\nNot Paid",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "group": "tenant",
+   "link_doctype": "Contract",
+   "link_fieldname": "tenant_name"
+  }
+ ],
+ "modified": "2024-09-19 19:25:24.528421",
+ "modified_by": "Administrator",
+ "module": "Airport Shop Management",
+ "name": "Rent Payments",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

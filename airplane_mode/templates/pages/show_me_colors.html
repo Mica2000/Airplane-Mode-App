@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Me Colors</title>
+    <style>
+        .rectangle {
+            width: 300px;
+            height: 200px;
+            background-color: {{ frappe.form_dict.get('color', 'black') }};
+            border: 1px solid #000;
+            margin: 20px auto;
+        }
+        .container {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Color Rectangle</h1>
+        <div class="rectangle"></div>
+        <p>Current Color: {{ frappe.form_dict.get('color', 'black') }}</p>
+    </div>
+</body>
+</html>
+

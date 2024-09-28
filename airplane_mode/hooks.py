@@ -242,3 +242,44 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+# In your hooks.py
+
+from frappe import _
+
+routes = [
+    # ... other routes ...
+    {"from_route": "/show-me", "to_route": "show_me_colors"},
+]
+
+
+
+
+#for web view page for flights
+website_route_rules = [
+    {"from_route": "/flights", "to_route": "airplane_flight.list"}
+]
+
+website_generators = ["Airplane Flight"]
+
+website_route_rules = [
+    {"from_route": "/flights/<flight>", "to_route": "airplane_flight"},
+]
+
+
+web_form_include_js = {"Airline": "public/js/airline_web_form.js"}
+
+#set up a schedular event
+scheduler_events = {
+    "cron": {
+        "0 0 1 * *": [  # Runs on the first of every month at midnight
+            "airplane_mode.airport_management.doctype.rent_payments.rent_reminder.send_rent_reminders"
+        ]
+    }
+}
+
+#make the available shops portal accessible
+portal_menu_items = [
+    {"title": "Available Shops", "route": "/available-shops", "reference_doctype": "Shop", "role": "Tenant"}
+]
+
+

@@ -1,0 +1,13 @@
+# Copyright (c) 2024, David Maina and contributors
+# For license information, please see license.txt
+
+# flight_passenger.py
+
+from frappe.model.document import Document
+
+class FlightPassenger(Document):
+    def before_save(self):
+        self.set_full_name()
+
+    def set_full_name(self):
+        self.full_name = f"{self.first_name or ''} {self.last_name or ''}".strip()
